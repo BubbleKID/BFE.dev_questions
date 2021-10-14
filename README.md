@@ -17,9 +17,11 @@ Answer
 
 ```
 // IIFE (Immediately Invoked Function Expression) (function () { statements })(); 
-// allow function runs as soon as it is defined. 
+// It allows function runs as soon as it is defined. 
 const count = (() => {
   let num = 0;
+  // Closure:, a closure gives you access to an outer function’s scope from an inner function
+  // In this case func can access variable num
   const func = () => ++num;
   func.reset = () => num = 0;
   return func;
