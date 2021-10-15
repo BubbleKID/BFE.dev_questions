@@ -27,6 +27,7 @@ const count = (() => {
   return func;
 })();
 ```
- 
+The num variable only exist in the outer and inner functions. The outer function never had its reference stored to a variable because it was immediately called, so it never will be called again. The inner function reference was stored in func and can be called again.
+https://stackoverflow.com/questions/65273130/variables-in-a-iife
 
 
