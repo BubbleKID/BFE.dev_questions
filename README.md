@@ -70,4 +70,24 @@ notes
 to make things simple, functions passed to pipe() will all accept 1 argument
 
 Answer
+```
+const times = (y) =>  (x) => x * y
+const plus = (y) => (x) => x + y
+const subtract = (y) =>  (x) => x - y
+const divide = (y) => (x) => x / y
+
+// return a function that take x as parameter
+const pipe = (funcs) => (x) => funcs.reduce((y, func) => func(y), x); 
+// result as accumulator, func as reducer
+// x as accumulator's initialValue value
+
+pipe([
+  times(2),
+  subtract(3),
+  divide(4)
+])(2)
+
+// return 0.25
+```
+
 https://www.youtube.com/watch?v=t-kRkZrFdfg
