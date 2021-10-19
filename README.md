@@ -189,3 +189,46 @@ const count = (() => {
 The num variable only exist in the outer and inner functions. The outer function never had its reference stored to a variable because it was immediately called, so it never will be called again. The inner function reference was stored in func and can be called again.
 https://stackoverflow.com/questions/65273130/variables-in-a-iife
 
+
+### 162. find the single integer
+Given an array of integers, all integers appear twice except one integer, could you quickly target it ?
+```
+const arr = [10, 2, 2 , 1, 0, 0, 10]
+findSingle(arr) // 1
+```
+What is time & space cost of your approach ? Could you do better ?
+Answer
+
+```
+// noob
+function findSingle(arr) {
+  let compareArr = []
+  arr.filter(num => {
+    if(compareArr.includes(num)) {
+      compareArr.splice(compareArr.indexOf(num), 1);
+    } else {
+      compareArr.push(num)
+    }
+  });
+  return compareArr[0];
+}
+```
+```
+// pro
+function findSingle(arr: number[]): number {
+  // your code here
+  let res = 0
+  arr.forEach( num => res ^= num )
+  return res
+}
+// or
+
+function findSingle(arr: number[]): number {
+  // your code here
+  return arr.reduce((acc, cur) => acc ^= cur, 0)
+}
+
+```
+0^10^2^2^1^0^0^10
+The bitwise XOR operator (^) returns a 1 in each bit position for which the corresponding bits of either but not both operands are 1s.
+num XOR itself = 0
