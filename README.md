@@ -1,5 +1,52 @@
 # BFE.dev_questions
 
+### 1. Currying is a useful technique used in JavaScript applications.
+
+Please implement a curry() function, which accepts a function and return a curried one.
+
+Here is an example
+```
+const join = (a, b, c) => {
+   return `${a}_${b}_${c}`
+}
+
+const curriedJoin = curry(join)
+
+curriedJoin(1, 2, 3) // '1_2_3'
+
+curriedJoin(1)(2, 3) // '1_2_3'
+
+curriedJoin(1, 2)(3) // '1_2_3'
+```
+more to read
+
+https://javascript.info/currying-partials
+
+https://lodash.com/docs/4.17.15#curry
+
+Answer
+Arrow function expressions doenst support `arguments`, but can be restructured this way:
+((...arguments) => console.log(arguments))(1, 2, 3);
+
+```
+const curry= (fn) => {
+  return curried = (...args) => {
+    // The length property indicates the number of parameters expected by the function.
+    if (args.length >= fn.length) {
+      // The apply() method calls a function with a given this value, and arguments provided as an array (or an array-like object). but call takes arguments provided individually.
+      return fn.apply(this, args);
+    } else {
+      return (...args2) => {
+        // conbine arrays
+        return curried.apply(this, args.concat(args2));
+      }
+    }
+  }
+}
+```
+If passed args count is the same or more than the original function has in its definition (func.length) , then just pass the call to it using func.apply.
+Otherwise, get a partial: we don’t call func just yet. Instead, another wrapper is returned, that will re-apply curried providing previous arguments together with the new ones.
+
 ### 11. what is Composition? create a pipe()
 what is Composition? It is actually not that difficult to understand, see @dan_abramov 's explanation.
 
