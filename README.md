@@ -189,6 +189,58 @@ const count = (() => {
 The num variable only exist in the outer and inner functions. The outer function never had its reference stored to a variable because it was immediately called, so it never will be called again. The inner function reference was stored in func and can be called again.
 https://stackoverflow.com/questions/65273130/variables-in-a-iife
 
+### 159. implement promisify()
+Let's take a look at following error-first callback.
+```
+const callback = (error, data) => {
+  if (error) {
+    // handle the error
+  } else {
+    // handle the data
+  }
+}
+```
+Now think about async functions that takes above error-first callback as last argument.
+```
+const func = (arg1, arg2, callback) => {
+  // some async logic
+  if (hasError) {
+    callback(someError)
+  } else {
+    callback(null, someData)
+  }
+}
+```
+You see what needs to be done now. Please implement promisify() to make the code better.
+```
+const promisedFunc = promisify(func)
+
+promisedFunc().then((data) => {
+  // handles data
+}).catch((error) => {
+  // handles error
+})
+```
+Anwser
+https://www.youtube.com/watch?v=WLoOTzTRfpg&feature=emb_imp_woyt
+Arrow functions do not bind their own this , instead, they inherit the one from the parent scope, which is called "lexical scoping"
+```
+function promisify(func) {   
+  // return (...args) => { 
+  // use function instead arrow funcion to pass this
+  return function(...args){
+    return new Promise((resolve, reject) => {
+      func.call(this, ...args, (error, data) => {
+        if (error) {
+          reject(error)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+  }
+}
+```
 
 ### 162. find the single integer
 Given an array of integers, all integers appear twice except one integer, could you quickly target it ?
