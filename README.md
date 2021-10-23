@@ -181,7 +181,7 @@ Use Object.defineProperty to override the value property of state
 https://segmentfault.com/a/1190000007434923
 ```
 function model(state, element) {
-    element.value = state.value;
+  element.value = state.value;
   element.addEventListener("change", function() {
     state.value = element.value;
   });
