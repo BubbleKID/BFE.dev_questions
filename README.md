@@ -309,6 +309,8 @@ integerToRoman(3420)
 // 'MMMCDXX'
 ```
 Answer
+【JavaScript】JS中如何跳出循环/结束遍历
+https://segmentfault.com/a/1190000020176190
 ```
 function romanToInteger(num) {
     const symbols = [
