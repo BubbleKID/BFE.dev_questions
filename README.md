@@ -284,3 +284,59 @@ function findSingle(arr: number[]): number {
 0^10^2^2^1^0^0^10
 The bitwise XOR operator (^) returns a 1 in each bit position for which the corresponding bits of either but not both operands are 1s.
 num XOR itself = 0
+
+### 163. integer to roman numerals
+Roman numerals are represented by combinations of following seven symbols, each with a fixed integer value.
+
+Symbol	I	V	X	L	C	D	M
+Value	1	5	10	50	100	500	1000
+For Standard form, subtractive notation is used, meaning 4 is IV rather than IIII, 9 is IX rather than VIIII. Same rule applies to 40(XL) and 900(CM) .etc.
+
+Simply speaking, the roman numerals in standard form follow these rules.
+
+symbols are listed from highest to lowest, from left to right
+from left to right, if the next symbol value is bigger than current one, it means subtracting, otherwise adding.
+Please implement integerToRoman(). The input are all integers within valid range.
+
+```
+integerToRoman(123)
+// 'CXXIII'
+
+integerToRoman(1999)
+// 'MCMXCIX'
+
+integerToRoman(3420)
+// 'MMMCDXX'
+```
+Answer
+```
+function romanToInteger(num) {
+    const symbols = [
+    { value: 1000, roman: 'M' },
+    { value: 900, roman: 'CM' },
+    { value: 500, roman: 'D' },
+    { value: 400, roman: 'CD' },
+    { value: 100, roman: 'C' },
+    { value: 90, roman: 'XC' },
+    { value: 50, roman: 'L' },
+    { value: 40, roman: 'XL' },
+    { value: 10, roman: 'X' },
+    { value: 9, roman: 'IX' },
+    { value: 5, roman: 'V' },
+    { value: 4, roman: 'IV' },
+    { value: 1, roman: 'I' }
+  ];
+  let roman = '';
+  while(num > 0) {
+    let loop = true;
+    symbols.forEach(symbol => {
+      if(num >= symbol.value && loop) {
+        num -= symbol.value;
+        roman += symbol.roman;
+        loop = false;
+      }
+    });
+  }
+  return roman;
+}
+```
