@@ -158,6 +158,40 @@ const reverseLinkedList = (list) => {
   return list;
 }
 ```
+
+### 154. Two-way binding
+Let's do some simple two-way binding.
+
+Please create a function `model(state, element)`, to bind state.value to the HTMLInputElement `element`.
+```
+const input = document.createElement('input')
+const state = { value: 'BFE' }
+model(state, input)
+
+console.log(input.value) // 'BFE'
+state.value = 'dev'
+console.log(input.value) // 'dev'
+input.value = 'BFE.dev'
+input.dispatchEvent(new Event('change'))
+console.log(state.value) // 'BFE.dev'
+```
+Answer
+Use Object.defineProperty to override the value property of state
+理解Object.defineProperty的作用
+https://segmentfault.com/a/1190000007434923
+```
+function model(state, element) {
+    element.value = state.value;
+  element.addEventListener("change", function() {
+    state.value = element.value;
+  });
+  Object.defineProperty(state, 'value',{
+      get: () => element.value,
+      set: (value) => element.value = value
+  });
+}
+```
+
 ### 155. create a count function
 Please create a function `count()` , when called it should return how many times it has been called, `count.reset()` should also implemented.
 
