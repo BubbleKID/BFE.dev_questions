@@ -181,6 +181,24 @@ function createCounter() {
     }
   }
 }
+
+// or https://www.youtube.com/watch?v=ilEN1KXFcYg
+function createCounter(): {count: number } {
+ 
+  let count = 0
+
+  const obj = {
+    count: 0
+  }
+
+  Object.defineProperty(obj, 'count', {
+    get: function() {
+      return count++
+    }
+  })
+
+  return obj
+}
 ```
 ### 154. Two-way binding
 Let's do some simple two-way binding.
