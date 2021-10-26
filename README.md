@@ -1,5 +1,10 @@
 # BFE.dev_questions
-
+### BFE总进度: 
+#### Coding: 10/164
+#### Design 0/14
+#### Enjoy 0/68
+#### TypeScript 0/43
+#### CSS 0/8
 ### 1. Currying is a useful technique used in JavaScript applications.
 
 Please implement a curry() function, which accepts a function and return a curried one.
@@ -222,6 +227,39 @@ romanToInteger('MCMXCIX')
 
 romanToInteger('MMMCDXX')
 // 3420
+```
+
+Answer]
+```
+function romanToInteger(str) {
+  const symbols = [
+    { value: 1000, roman: 'M' },
+    { value: 500, roman: 'D' },
+    { value: 100, roman: 'C' },
+    { value: 50, roman: 'L' },
+    { value: 10, roman: 'X' },
+    { value: 5, roman: 'V' },
+    { value: 1, roman: 'I' }
+  ];
+  
+  let num = 0;
+  let prev = 0;
+ 
+  str.split('').map((letter, letterIndex) => {
+    symbols.forEach((symbol, index) => {
+      if(letter === symbol.roman) {
+        // if previous letter exists and current value > previous value then do subtraction
+        if(str[letterIndex - 1] && symbol.value > prev) {
+          num = num - prev * 2 + symbol.value;
+        } else {
+          num += symbol.value;
+        }
+        prev = symbol.value;
+      }
+    });
+  });
+  return num;
+}
 ```
 
 ### 154. Two-way binding
