@@ -188,6 +188,9 @@ const reverseLinkedList = (list) => {
   return list;
 }
 ```
+### 106. Find two numbers that sum up to 0
+use Map
+https://zhuanlan.zhihu.com/p/358378689
 ### 148. create a counter object
 Create an object with property `count`, which increments every time count is accessed, initial value is 0.
 ```
