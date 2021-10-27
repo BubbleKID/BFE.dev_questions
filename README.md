@@ -5,8 +5,8 @@
 #### Enjoy 0/68
 #### TypeScript 0/43
 #### CSS 0/8
-### 1. Currying is a useful technique used in JavaScript applications.
 
+### 1. Currying is a useful technique used in JavaScript applications.
 Please implement a curry() function, which accepts a function and return a curried one.
 
 Here is an example
@@ -113,7 +113,19 @@ pipe([
 ```
 
 https://www.youtube.com/watch?v=t-kRkZrFdfg
+### 15. implement a simple DOM wrapper to support method chaining like jQuery
+I believe you've used jQuery before, we often chain the jQuery methods together to accomplish our goals.
 
+For example, below chained call turns button into a black button with white text.
+```
+$('#button')
+  .css('color', '#fff')
+  .css('backgroundColor', '#000')
+  .css('fontWeight', 'bold')
+```
+The chaining makes the code simple to read, could you create a simple wrapper $ to make above code work as expected?
+
+The wrapper only needs to have css(propertyName: string, value: any)
 ### 47. reverse a linked list
 Another basic algorithm even for Front End developers.
 
