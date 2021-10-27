@@ -125,6 +125,17 @@ $('#button')
 ```
 The chaining makes the code simple to read, could you create a simple wrapper $ to make above code work as expected?
 
+Answer
+```
+function $(el) {
+  return  {
+    css: function(property, value) {
+      el.style[property] = value;
+      return this;
+    }
+  }
+}
+```
 The wrapper only needs to have css(propertyName: string, value: any)
 ### 47. reverse a linked list
 Another basic algorithm even for Front End developers.
