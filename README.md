@@ -52,6 +52,8 @@ const curry= (fn) => {
 If passed args count is the same or more than the original function has in its definition (func.length) , then just pass the call to it using func.apply.
 Otherwise, get a partial: we don’t call func just yet. Instead, another wrapper is returned, that will re-apply curried providing previous arguments together with the new ones.
 
+### 23. create a sum()
+https://juejin.cn/post/6865805857976745998
 ### 11. what is Composition? create a pipe()
 what is Composition? It is actually not that difficult to understand, see @dan_abramov 's explanation.
 
