@@ -137,7 +137,7 @@ function $(el) {
 }
 ```
 The wrapper only needs to have css(propertyName: string, value: any)
-### 17. Create a simple store for DOM element
+### (Facebook)17. Create a simple store for DOM element
 ```
 class NodeStore {
   static VALUE_KEY = '__index'
