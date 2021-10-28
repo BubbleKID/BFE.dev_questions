@@ -52,8 +52,6 @@ const curry= (fn) => {
 If passed args count is the same or more than the original function has in its definition (func.length) , then just pass the call to it using func.apply.
 Otherwise, get a partial: we don’t call func just yet. Instead, another wrapper is returned, that will re-apply curried providing previous arguments together with the new ones.
 
-### 23. create a sum()
-https://juejin.cn/post/6865805857976745998
 ### 11. what is Composition? create a pipe()
 what is Composition? It is actually not that difficult to understand, see @dan_abramov 's explanation.
 
@@ -139,6 +137,44 @@ function $(el) {
 }
 ```
 The wrapper only needs to have css(propertyName: string, value: any)
+### 17. Create a simple store for DOM element
+```
+class NodeStore {
+  static VALUE_KEY = '__index'
+  nodeList = []
+  valueList = []
+   /**
+   * @param {Node} node
+   * @param {any} value
+   */
+  set(node, value) {
+    node[NodeStore.VALUE_KEY] = this.nodeList.length
+    this.nodeList.push(node)
+    this.valueList.push(value)
+  }
+  /**
+   * @param {Node} node
+   * @return {any}
+   */
+  get(node) {
+    if (NodeStore.VALUE_KEY in node) {
+      return this.valueList[node[NodeStore.VALUE_KEY]]
+    }
+    return undefined
+  }
+  
+  /**
+   * @param {Node} node
+   * @return {Boolean}
+   */
+  has(node) {
+    return NodeStore.VALUE_KEY in node
+  }
+}
+```
+https://www.youtube.com/watch?v=DAaMoriI0Xg
+### 23. create a sum()
+https://juejin.cn/post/6865805857976745998
 ### 47. reverse a linked list
 Another basic algorithm even for Front End developers.
 
