@@ -175,6 +175,31 @@ class NodeStore {
 https://www.youtube.com/watch?v=DAaMoriI0Xg
 ### 23. create a sum()
 https://juejin.cn/post/6865805857976745998
+### 28. implement clearAllTimeout()
+Anwser
+```
+const originSetTimeout = setTimeout;
+const originClearTimeOut = clearTimeout;
+window.timeoutList = [];
+
+window.setTimeout = (func, delay, ...args) => {
+  const callbackWrapper  = () => {
+      func(...args);
+      let index = window.timeoutList.indexOf(id);  
+      window.timeoutList.splice(index, 1);         
+  }
+  const timeoutId = originSetTimeout(callbackWrapper, delay);
+  window.timeoutList.push(timeoutId);
+  return timeoutId;
+}
+
+function clearAllTimeout() {  
+  window.timeoutList.forEach(id => {
+    originClearTimeOut(id);
+  });
+  window.timeoutList = [];
+}
+```
 ### 47. reverse a linked list
 Another basic algorithm even for Front End developers.
 
