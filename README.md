@@ -249,6 +249,10 @@ const reverseLinkedList = (list) => {
   return list;
 }
 ```
+### 91. invert a binary tree
+Destructuring assignment: https://javascript.info/destructuring-assignment
+Answer:
+https://www.youtube.com/watch?v=ALnHXq-VhJA
 ### 106. Find two numbers that sum up to 0
 use Map
 https://zhuanlan.zhihu.com/p/358378689
