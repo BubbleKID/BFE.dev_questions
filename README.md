@@ -256,6 +256,18 @@ https://www.youtube.com/watch?v=ALnHXq-VhJA
 ### 106. Find two numbers that sum up to 0
 use Map
 https://zhuanlan.zhihu.com/p/358378689
+### 120. create `isPrime()`
+Answer 
+function isPrime(num) {
+  // your code here
+  for(let index = 2; index <= Math.sqrt(num); index++) if(num%index === 0) return false;
+  return num === 1 ? false : true;
+}
+### 147. Pick up stones
+Answer
+function canWinStonePicking(n) {
+  return n % 3 === 1 ? 'B' : 'A';
+}
 ### 148. create a counter object
 Create an object with property `count`, which increments every time count is accessed, initial value is 0.
 ```
