@@ -200,6 +200,8 @@ function clearAllTimeout() {
   window.timeoutList = [];
 }
 ```
+### 39. implement range()
+while or iterator
 ### 47. reverse a linked list
 Another basic algorithm even for Front End developers.
 
@@ -253,6 +255,21 @@ const reverseLinkedList = (list) => {
 Destructuring assignment: https://javascript.info/destructuring-assignment
 Answer:
 https://www.youtube.com/watch?v=ALnHXq-VhJA
+### 97
+function compress(str) {
+   const res = [];
+  let count = 0;
+  
+  for (let i = 0; i < str.length; i++) {
+    count++;
+    if (str[i] !== str[i+1]) {
+      res.push(str[i]);
+      if (count > 1) res.push(count); 
+      count = 0;
+    }
+  }
+  return res.join('');
+}
 ### 106. Find two numbers that sum up to 0
 use Map
 https://zhuanlan.zhihu.com/p/358378689
