@@ -202,6 +202,18 @@ function clearAllTimeout() {
 ```
 ### 39. implement range()
 while or iterator
+### 44. implement Selection Sort
+function selectionSort(arr) {
+ for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+    [arr[i], arr[min]] = [arr[min], arr[i]];
+  }
+}
 ### 47. reverse a linked list
 Another basic algorithm even for Front End developers.
 
