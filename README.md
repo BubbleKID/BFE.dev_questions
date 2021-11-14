@@ -202,6 +202,17 @@ function clearAllTimeout() {
 ```
 ### 39. implement range()
 while or iterator
+### 42. implement Insertion Sort
+function insertionSort(arr) {
+  for(let index = 1; index < arr.length; index++){
+    const key = arr[index];
+    let subIdx = index - 1;
+
+    while(subIdx >= 0 && arr[subIdx] > key) arr[subIdx + 1] = arr[subIdx--];
+
+    arr[subIdx + 1] = key;
+  }
+}
 ### 44. implement Selection Sort
 function selectionSort(arr) {
  for (let i = 0; i < arr.length; i++) {
