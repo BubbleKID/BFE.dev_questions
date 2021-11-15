@@ -1,7 +1,7 @@
 # BFE.dev_questions
 ### BFE总进度: 
-#### Coding: 16/164
-#### Design 0/14
+#### Coding: 32/164
+#### Design 1/14
 #### Enjoy 0/68
 #### TypeScript 0/43
 #### CSS 0/8
@@ -302,6 +302,41 @@ function isPrime(num) {
   // your code here
   for(let index = 2; index <= Math.sqrt(num); index++) if(num%index === 0) return false;
   return num === 1 ? false : true;
+}
+### 138. Intersection of two sorted arrays
+https://www.youtube.com/watch?v=8NXyNMY7uuA
+function intersect(arr1, arr2) {
+  // your code here
+  // n * m
+  // O(n * m), 
+  // preprocess arr2 -> Map<number, count>
+  // time: O(n) + O(m), space: O(m)
+
+  // keep shifting
+  // O(n + m)
+  // reverse it first, then poping
+  // O(n + m), space: O(1)
+  arr1.reverse()
+  arr2.reverse()
+
+  const result = []
+
+  while (arr1.length > 0 && arr2.length > 0) {
+    const top1 = arr1[arr1.length - 1]
+    const top2 = arr2[arr2.length - 1]
+
+    if (top1 === top2) {
+      result.push(top1)
+      arr1.pop()
+      arr2.pop()
+    } else if (top1 < top2) {
+      arr1.pop()
+    } else {
+      arr2.pop()
+    }
+  }
+
+  return result
 }
 ### 147. Pick up stones
 Answer
