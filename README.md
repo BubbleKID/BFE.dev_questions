@@ -1,10 +1,15 @@
 # BFE.dev_questions
 ### BFE总进度: 
-#### Coding: 32/164
+#### Coding: 33/164
 #### Design 1/14
 #### Enjoy 0/68
 #### TypeScript 0/43
 #### CSS 0/8
+
+### Leetcode总进度:
+#### Easy: 3/527
+#### Medium 1/1107
+#### Hard 0/442
 
 ### 1. Currying is a useful technique used in JavaScript applications.
 Please implement a curry() function, which accepts a function and return a curried one.
