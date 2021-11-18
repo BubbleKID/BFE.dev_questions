@@ -8,7 +8,7 @@
 
 ### Leetcode总进度:
 #### Easy: 3/527
-#### Medium 1/1107
+#### Medium 2/1107
 #### Hard 0/442
 
 ### 1. Currying is a useful technique used in JavaScript applications.
