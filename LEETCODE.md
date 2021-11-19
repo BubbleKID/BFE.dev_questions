@@ -46,3 +46,48 @@ class NestedIterator {
   }
 }
 ```
+
+347. Top K Frequent Elements
+```
+var topKFrequent = function(nums, k) {
+   let rank = {};
+    let sortedArr = {};
+    nums.forEach(num => {
+        if(rank[num] === undefined) {
+            rank[num] = 1;
+        } else {
+            rank[num] +=1;
+        }
+    });
+    
+    sortedArr = Object.entries(rank).sort(([,a],[,b]) => b-a);
+    return sortedArr.map(arr => parseInt(arr[0])).splice(0, k);
+    
+};
+```
+
+361. Hamming Distance
+Number.toString(2) 转换2进制
+unshift 数组往前补0
+array.unshift('0')
+```
+var hammingDistance = function(x, y) {
+    
+    var xBase = x.toString(2).split("");
+    var yBase = y.toString(2).split("");
+    var distance = 0;
+    while(xBase.length < yBase.length){
+        xBase.unshift("0");
+    }
+    while(xBase.length > yBase.length){
+        yBase.unshift("0");
+    }
+    
+    xBase.forEach((x,i)=>{
+        if(x !== yBase[i]){
+            distance++
+        }
+    })
+    return distance;
+};
+```
