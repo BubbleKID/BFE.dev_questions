@@ -1,0 +1,14 @@
+#pan {
+    display: flex;
+    flex-wrap: wrap;
+    width: 140px;
+}
+
+.grid {
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    border: solid 2px black;
+}

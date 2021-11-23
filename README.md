@@ -1,6 +1,6 @@
 # BFE.dev_questions
 ### BFE总进度: 
-#### Coding: 33/164
+#### Coding: 34/164
 #### Design 1/14
 #### Enjoy 0/68
 #### TypeScript 0/43
@@ -203,6 +203,23 @@ function clearAllTimeout() {
     originClearTimeOut(id);
   });
   window.timeoutList = [];
+}
+```
+### 37. implement Binary Search (unique)
+```
+function binarySearch(arr, target){
+  let low = 0;
+  let high = arr.length - 1;
+  while (low <= high) {
+      let mid = Math.floor((low + high) / 2);
+      if (target === arr[mid]) return mid;
+      if (arr[mid] < target) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+  }
+  return -1;
 }
 ```
 ### 39. implement range()

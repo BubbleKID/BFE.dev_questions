@@ -91,3 +91,15 @@ var hammingDistance = function(x, y) {
     return distance;
 };
 ```
+9. Palindrome Number
+```
+var isPalindrome = function(x) {
+    let max = Math.pow(2, 31) - 1;
+    let min = -max - 1;
+    let reverseX = parseInt(x.toString().split('').reverse().join(''));
+    
+    if(x > max || x < min || x < 0) return false;
+    
+    return reverseX === x;
+};
+```
