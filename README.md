@@ -1,14 +1,14 @@
 # BFE.dev_questions
 ### BFE总进度: 
-#### Coding: 34/164
+#### Coding: 35/164
 #### Design 1/14
 #### Enjoy 0/68
 #### TypeScript 0/43
 #### CSS 0/8
 
 ### Leetcode总进度:
-#### Easy: 3/527
-#### Medium 2/1107
+#### Easy: 7/527
+#### Medium 8/1107
 #### Hard 0/442
 
 ### 1. Currying is a useful technique used in JavaScript applications.
