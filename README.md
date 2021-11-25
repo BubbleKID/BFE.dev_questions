@@ -300,6 +300,23 @@ const reverseLinkedList = (list) => {
 Destructuring assignment: https://javascript.info/destructuring-assignment
 Answer:
 https://www.youtube.com/watch?v=ALnHXq-VhJA
+### 93. Generate Fibonacci Number with recursion
+Tail Call Optimization Solution
+```
+  function fib(n, a = 0, b = 1){
+    if (n === 0) return a;
+    if (n === 1) return b;
+    return fib(n - 1, b, a + b);
+  }
+  const t0 = performance.now();
+  console.log(
+    fib(1000)
+  )
+  const t1 = performance.now();
+  console.log(t1-t0);
+```
+尾递归,比线性递归多一个参数,这个参数是上一次调用函数得到的结果;
+所以,关键点在于,尾递归每次调用都在收集结果,避免了线性递归不收集结果只能依次展开消耗内存的坏处.
 ### 97
 function compress(str) {
    const res = [];
@@ -360,6 +377,26 @@ function intersect(arr1, arr2) {
 
   return result
 }
+### 142. lit-html 1 - tagged templates
+`string 1 ${value1} string2 ${value2}`会把字符串和变量分开存储
+```
+  function html(string, ...values) {
+    let segs = [];
+    let i;
+    for(i = 0; i < values.length; i++) {
+      segs.push(string[i]);
+      segs.push(values[i]);
+    }
+    segs.push(string[i]);
+    return segs.join('');
+  }
+
+
+  // render the result from html() into the container
+  function render(result, container) {
+    container.innerHTML = result;
+  }
+```
 ### 147. Pick up stones
 Answer
 function canWinStonePicking(n) {
