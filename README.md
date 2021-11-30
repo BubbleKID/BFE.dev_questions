@@ -322,6 +322,19 @@ const reverseLinkedList = (list) => {
   return list;
 }
 ```
+### 54. flatten Thunk
+// https://www.youtube.com/watch?v=EhyuWntGA8s
+```
+function flattenThunk(thunk) {
+   // your code here
+  return function(cb){
+    function wrapper(err, res){
+      typeof res === 'function' ? res(wrapper) : cb(err, res);
+    }
+    thunk(wrapper)
+  }
+}
+```
 ### 89. Next Right Sibling
 https://bigfrontend.dev/problem/Next-Right-Sibiling
 ```
