@@ -178,6 +178,32 @@ class NodeStore {
 }
 ```
 https://www.youtube.com/watch?v=DAaMoriI0Xg
+### 19. find corresponding node in two identical DOM tree
+Use BFS for two trees
+```
+const findCorrespondingNode = (rootA, rootB, target) => {
+   // your code here
+  if (rootA === target) {
+    return rootB;
+  }
+
+  const queueA = [rootA];
+  const queueB = [rootB];
+
+  while(queueA.length) {
+    const currentElementA = queueA.shift();
+    const currentElementB = queueB.shift();
+
+    if (currentElementA === target) {
+      return currentElementB;
+    }
+
+    queueA.push(...currentElementA.children);
+    queueB.push(...currentElementB.children);    
+  }
+  return null;
+}
+```
 ### 23. create a sum()
 https://juejin.cn/post/6865805857976745998
 ### 28. implement clearAllTimeout()
