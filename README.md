@@ -296,6 +296,38 @@ const reverseLinkedList = (list) => {
   return list;
 }
 ```
+### 89. Next Right Sibling
+https://bigfrontend.dev/problem/Next-Right-Sibiling
+```
+function nextRightSibling(root, target) {
+  if (!root) {
+    return null;
+  }
+  const queue = [root, null];
+
+  while(queue.length) {
+    console.log(queue)
+    const node = queue.shift();
+    if (node === target) {
+      console.log('node === target')
+      debugger
+      return queue.shift();
+    } else if (node === null && queue.length) {
+      console.log('node === null && queue.length')
+      queue.push(null);
+    } else {
+      console.log('queue.push(...node.children)')
+      queue.push(...node.children)
+    }
+  }
+  return null;
+}
+const root = document.querySelector('#root');
+const button = document.querySelector('#btn');
+const result = root.querySelector('a[data-id="11"]')
+console.log(nextRightSibling(root, button))
+```
+// 用BFS搜索从root遍历所有子节点, 当节点是当前节点的时候, queue.shift()获取下一个节点就是next right sibling
 ### 91. invert a binary tree
 Destructuring assignment: https://javascript.info/destructuring-assignment
 Answer:
