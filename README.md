@@ -453,96 +453,22 @@ function intersect(arr1, arr2) {
 
 ### 141. implement btoa()
 ```
-  const table = {
-    0: 'A',
-    1: 'B',
-    2: 'C',
-    3: 'D',
-    4: 'E',
-    5: 'F',
-    6: 'G',
-    7: 'H',
-    8: 'I',
-    9: 'J',
-    10: 'K',
-    11: 'L',
-    12: 'M',
-    13: 'N',
-    14: 'O',
-    15: 'P',
-    16: 'Q',
-    17: 'R',
-    18: 'S',
-    19: 'T',
-    20: 'T',
-    21: 'U',
-    22: 'W',
-    23: 'X',
-    24: 'Y',
-    25: 'Z',
-    26: 'a',
-    27: 'b',
-    28: 'c',
-    29: 'd',
-    30: 'e',
-    31: 'f',
-    32: 'g',
-    33: 'h',
-    34: 'i',
-    35: 'j',
-    36: 'k',
-    37: 'l',
-    38: 'm',
-    39: 'n',
-    40: 'o',
-    41: 'p',
-    42: 'q',
-    43: 'r',
-    44: 's',
-    45: 't',
-    46: 'u',
-    47: 'v',
-    48: 'w',
-    49: 'x',
-    50: 'y',
-    51: 'z',
-    52: '0',
-    53: '1',
-    54: '2',
-    55: '3',
-    56: '4',
-    57: '5',
-    58: '6',
-    59: '7',
-    60: '8',
-    61: '9',
-    62: '+',
-    63: '/',
-  }
-  let binary = str.split('').map(char => {
-    let newChar = char.charCodeAt(0);
-    let newBinaryChar = newChar.toString(2);
-    while(newBinaryChar.length < 8) {
-      newBinaryChar = '0' + newBinaryChar;
-    }
-    return newBinaryChar;
-  }).join('');
+  const base64table = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+  let binary = str.split('').map(char =>  char.charCodeAt(0).toString(2).padStart(8, '0')).join('');
   let result = '';
   let zeroCount = 0;
   for(let i = 0; i < binary.length; i += 6) {
     newBinary = binary.substring(i, i + 6)
     while(newBinary.length < 6) {
       newBinary += '0';
-      console.log(newBinary)
       zeroCount++;
     }
-    result += table[parseInt(newBinary, 2)];
+    result += base64table[parseInt(newBinary, 2)];
   }
   if(zeroCount === 2) result += "=";
   if(zeroCount === 4) result += "==";
   return console.log(result)
 }
-
 
 myBtoa('BFE')
 // 'QkZF'
