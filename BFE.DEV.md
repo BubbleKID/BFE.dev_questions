@@ -1,15 +1,10 @@
 # BFE.dev_questions
 ### BFE总进度: 
-#### Coding: 35/164
+#### Coding: 53/164
 #### Design 1/14
 #### Enjoy 0/68
 #### TypeScript 0/43
 #### CSS 0/8
-
-### Leetcode总进度:
-#### Easy: 7/527
-#### Medium 8/1107
-#### Hard 0/442
 
 ### 1. Currying is a useful technique used in JavaScript applications.
 Please implement a curry() function, which accepts a function and return a curried one.
@@ -56,7 +51,6 @@ const curry= (fn) => {
 ```
 If passed args count is the same or more than the original function has in its definition (func.length) , then just pass the call to it using func.apply.
 Otherwise, get a partial: we don’t call func just yet. Instead, another wrapper is returned, that will re-apply curried providing previous arguments together with the new ones.
-
 ### 11. what is Composition? create a pipe()
 what is Composition? It is actually not that difficult to understand, see @dan_abramov 's explanation.
 

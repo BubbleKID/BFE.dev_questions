@@ -1,3 +1,8 @@
+### Leetcode总进度:
+#### Easy: 7/527
+#### Medium 8/1107
+#### Hard 0/442
+
 26. Remove Duplicates from Sorted Array
     Time complextiy : O(n)O(n). 
     Space complexity : O(1)O(1).
