@@ -1,6 +1,6 @@
 # BFE.dev_questions
 ### BFE总进度: 
-#### Coding: 53/164
+#### Coding: 54/164
 #### Design 1/14
 #### Enjoy 0/68
 #### TypeScript 0/43
@@ -51,6 +51,18 @@ const curry= (fn) => {
 ```
 If passed args count is the same or more than the original function has in its definition (func.length) , then just pass the call to it using func.apply.
 Otherwise, get a partial: we don’t call func just yet. Instead, another wrapper is returned, that will re-apply curried providing previous arguments together with the new ones.
+### 3. implement Array.prototype.flat()
+```
+function flat(arr, depth = 1) {
+  return depth ? arr.reduce((acc, cur) => [...acc, ...(Array.isArray(cur) ? flat(cur, depth--): [cur])], []) : arr;
+}
+
+function flat(arr, depth = 1) {
+  while (depth-- > 0 && arr.some(Array.isArray))
+    arr = [].concat(...arr)
+  return arr
+}
+```
 ### 11. what is Composition? create a pipe()
 what is Composition? It is actually not that difficult to understand, see @dan_abramov 's explanation.
 
@@ -750,7 +762,24 @@ function promisify(func) {
   }
 }
 ```
-
+### 161. toBe() or not.toBe()
+```
+function myExpect(input) {
+  let isReversed = false
+  return {
+    toBe(output) {
+      const isIdentical = Object.is(output, input)
+      if ((!isReversed && !isIdentical || (isReversed && isIdentical))) {
+        throw new Error('not match')
+      }
+    },
+    get not() {
+      isReversed = !isReversed;
+      return this
+    }
+  }
+}
+```
 ### 162. find the single integer
 Given an array of integers, all integers appear twice except one integer, could you quickly target it ?
 ```
