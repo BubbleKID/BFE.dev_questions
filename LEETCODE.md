@@ -2,8 +2,10 @@
 #### Easy: 7/527
 #### Medium 8/1107
 #### Hard 0/442
-
-26. Remove Duplicates from Sorted Array
+15. 3sum
+    two pointer
+    https://www.youtube.com/watch?v=Tx86Jr-4_lg
+16. Remove Duplicates from Sorted Array
     Time complextiy : O(n)O(n). 
     Space complexity : O(1)O(1).
     ```
@@ -74,7 +76,7 @@ var topKFrequent = function(nums, k) {
 361. Hamming Distance
 Number.toString(2) 转换2进制
 unshift 数组往前补0
-array.unshift('0')
+array.unshift('0')15. 3sumhttps://www.youtube.com/watch?v=Tx86Jr-4_lg
 ```
 var hammingDistance = function(x, y) {
     
