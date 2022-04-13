@@ -4,7 +4,7 @@
 #### Hard 0/442
 15. 3sum
     two pointer
-    https://www.youtube.com/watch?v=Tx86Jr-4_lg
+    https://www.youtube.com/watch?v=onLoX6Nhvmg
 16. Remove Duplicates from Sorted Array
     Time complextiy : O(n)O(n). 
     Space complexity : O(1)O(1).
