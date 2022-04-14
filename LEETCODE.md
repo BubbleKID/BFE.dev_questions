@@ -1,7 +1,8 @@
 ### Leetcode总进度:
 #### Easy: 7/527
-#### Medium 8/1107
+#### Medium 10/1107
 #### Hard 0/442
+
 15. 3sum
     two pointer
     https://www.youtube.com/watch?v=onLoX6Nhvmg
