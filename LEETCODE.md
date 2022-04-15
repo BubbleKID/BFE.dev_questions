@@ -27,7 +27,49 @@
     ```
 };
 
-341. Flatten Nested List Iterator
+31. Next Permutation
+ a. Find large point
+ b. Find smallest element
+ c. Swap
+ d. Reverse
+```
+var nextPermutation = function(nums) {
+     for(let i = nums.length - 1; i >= 0; i--) {
+         if(nums[i] < nums[i+1]) {
+             const large = nextLarge(i);
+             swap(i, large);
+             reverse(i+1);
+             return;
+         }
+     }
+    
+    // If there is no next permutation reverse the arr
+    nums.reverse()
+    
+    function swap(i, j) {
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+    
+    function reverse(idx) {
+        let start = idx, end = nums.length-1;
+        
+        while(start < end) {
+            swap(start, end);
+            start++;
+            end--;
+        }
+    }
+    
+    function nextLarge(idx) {
+        for(let i = nums.length-1; i > idx; i--) {
+            if(nums[i] > nums[idx]) return i;
+        }
+    }
+ };
+```
+https://www.youtube.com/watch?v=9Xxv6J88KVs
+
+1.   Flatten Nested List Iterator
 ```
 class NestedIterator {
   constructor(nestedList) {
@@ -55,7 +97,7 @@ class NestedIterator {
 }
 ```
 
-347. Top K Frequent Elements
+1.   Top K Frequent Elements
 ```
 var topKFrequent = function(nums, k) {
    let rank = {};
@@ -74,7 +116,7 @@ var topKFrequent = function(nums, k) {
 };
 ```
 
-361. Hamming Distance
+1.   Hamming Distance
 Number.toString(2) 转换2进制
 unshift 数组往前补0
 array.unshift('0')15. 3sumhttps://www.youtube.com/watch?v=Tx86Jr-4_lg
@@ -99,7 +141,7 @@ var hammingDistance = function(x, y) {
     return distance;
 };
 ```
-9. Palindrome Number
+1. Palindrome Number
 ```
 var isPalindrome = function(x) {
     let max = Math.pow(2, 31) - 1;
