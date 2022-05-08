@@ -153,3 +153,6 @@ var isPalindrome = function(x) {
     return reverseX === x;
 };
 ```
+456. 132 Pattern
+    单调栈
+https://www.youtube.com/watch?v=DkwVeHhfPwA&t=5s
